@@ -73,7 +73,7 @@
             CreateMenu();
             Q = new Spell.Active(SpellSlot.Q, 155);
             W = new Spell.Active(SpellSlot.W, 275);
-            E = new Spell.Skillshot(SpellSlot.E, 1000, SkillShotType.Linear, 250, 2000, 70);
+            E = new Spell.Skillshot(SpellSlot.E, 900, SkillShotType.Linear, 250, 2000, 70);
             R = new Spell.Skillshot(SpellSlot.R, 1200, SkillShotType.Circular, 1000, int.MaxValue, 250);
             R2 = new Spell.Skillshot(SpellSlot.R, 1200, SkillShotType.Circular, 1000, int.MaxValue, 100);
             E.MinimumHitChance = HitChance.High;
