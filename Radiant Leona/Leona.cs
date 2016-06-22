@@ -16,6 +16,8 @@
     {
         public static Menu Menu, CMenu, HMenu, MMenu, DMenu, OMenu;
 
+        public static AIHeroClient CurrentTarget;
+        
         public static AIHeroClient Player = ObjectManager.Player;
 
         public static Spell.Skillshot E, R, R2;
