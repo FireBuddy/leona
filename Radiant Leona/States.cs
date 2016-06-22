@@ -42,7 +42,7 @@
                 R.Cast(target);
             }
 
-            if (W.IsReady() && useW && Player.CountEnemiesInRange(50) > 0)
+            if (W.IsReady() && useW && Player.CountEnemiesInRange(200) > 0)
             {
                 W.Cast();
             }
