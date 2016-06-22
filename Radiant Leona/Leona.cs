@@ -84,6 +84,7 @@
 
         public static void OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
+            {
             if (!sender.IsMe || !(args.Target is AIHeroClient) || !Q.IsReady() || !Player.CanAttack || !GetOption(OMenu, "C"))
             {
                 return;
@@ -91,6 +92,22 @@
             Q.Cast();
             Orbwalker.ResetAutoAttack();
             EloBuddy.Player.IssueOrder(GameObjectOrder.AttackTo, args.Target);
+            }
+            {
+            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass))
+            {
+               return;
+            }
+            CurrentTarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(E.Range) && E.IsReady() && sender.IsEnemy)
+            {
+                
+                {
+                    E.Cast(sender.ServerPosition);
+                }
+
+            } 
+            }
         }
 
         public static void OnGapcloser(Obj_AI_Base sender, Gapcloser.GapcloserEventArgs args)
