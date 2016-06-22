@@ -50,8 +50,11 @@
             if (E.IsReady() && useE)
             {
                 E.Cast(target);
-                W.Cast();
                 
+                if (Player.CountEnemiesInRange(200) > 0)
+                {
+                    W.Cast();
+                }
             }
         }
     }
