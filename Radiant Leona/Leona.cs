@@ -135,13 +135,13 @@
                 {
 
                     Chat.Print("Not Receiving damage" +args.SData.Name);
-                    SpellManager.Q.Cast(sender.ServerPosition);
+                    E.Cast(sender.ServerPosition);
 
                 }                
                 if (args.Target != null)
                 {
                     Chat.Print("targetspell"+args.SData.Name);
-                    SpellManager.Q.Cast(sender.ServerPosition);
+                    E.Cast(sender.ServerPosition);
 
 }
             } 
