@@ -81,21 +81,23 @@
             Gapcloser.OnGapcloser += OnGapcloser;
             Drawing.OnEndScene += OnEndScene;
             Obj_AI_Base.OnBasicAttack += OnBasicAttack;
+            Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast2;
             //Chat.Print("<font color='#FFD700'>Radiant</font> <font color='#DEB887'>Leona</font> <font color='#FFF8DC'>Loaded!</font>");
         }
 
         public static void OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-                        {
+            {
             if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass))
             {
                return;
             }
             CurrentTarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
-            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(E.Range) && E.IsReady() && sender.IsEnemy)
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(880) && E.IsReady() && sender.IsEnemy)
             {
                 
                 {
+                    Chat.Print("basic Attack");
                     E.Cast(sender.ServerPosition);
                     W.Cast(Player);
                 }
@@ -113,6 +115,43 @@
 
             }
         }
+        private static void Obj_AI_Base_OnProcessSpellCast2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            
+            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass))
+            {
+               return;
+            }
+            CurrentTarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(880) && E.IsReady() && sender.IsEnemy)
+            {
+                
+                if (args.End.Distance(Player.Instance.Position) <= 100)
+                {
+                   Chat.Print("Receiving damage"+args.SData.Name);
+
+
+                 }
+                if (args.End.Distance(Player.Instance.Position) >= 100)
+                {
+
+                    Chat.Print("Not Receiving damage" +args.SData.Name);
+                    E.Cast(sender.ServerPosition);
+                    W.Cast(Player);
+                }
+
+                }                
+                if (args.Target != null)
+                {
+                    Chat.Print("targetspell"+args.SData.Name);
+                    E.Cast(sender.ServerPosition);
+                    W.Cast(Player);
+                }
+
+                }
+
+            } 
+}
 
         public static void OnGapcloser(Obj_AI_Base sender, Gapcloser.GapcloserEventArgs args)
         {
