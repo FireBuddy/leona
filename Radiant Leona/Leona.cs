@@ -125,7 +125,7 @@
             CurrentTarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
             if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(880) && E.IsReady() && sender.IsEnemy)
             {
-                if (args.End.Distance(Player.Instance.Position) <= 100)
+                if (args.End.Distance(Player) <= 100)
                 {
 
 
