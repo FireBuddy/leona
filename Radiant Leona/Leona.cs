@@ -125,17 +125,25 @@
             CurrentTarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
             if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(880) && E.IsReady() && sender.IsEnemy)
             {
-                if (args.End.Distance(Player) <= 100)
+                if (args.End.Distance(Player.Instance.ServerPosition) <= 100)
+                {
+                   Chat.Print("Receiving damage"+args.SData.Name);
+
+
+                 }
+                if (args.End.Distance(Player.Instance.ServerPosition) >= 100)
                 {
 
+                    Chat.Print("Not Receiving damage" +args.SData.Name);
+                    SpellManager.Q.Cast(sender.ServerPosition);
 
+                }                
+                if (args.Target != null)
+                {
+                    Chat.Print("targetspell"+args.SData.Name);
+                    SpellManager.Q.Cast(sender.ServerPosition);
 
-                }
-
-
-                
-
-
+}
             } 
 }
 
