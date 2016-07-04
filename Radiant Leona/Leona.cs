@@ -93,7 +93,7 @@
                return;
             }
             CurrentTarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
-            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(880) && E.IsReady() && sender.IsEnemy)
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(850) && E.IsReady() && sender.IsEnemy)
             {
                 
                 {
@@ -123,7 +123,7 @@
                return;
             }
             CurrentTarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
-            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(880) && E.IsReady() && sender.IsEnemy)
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(850) && E.IsReady() && sender.IsEnemy)
             {
                 if (args.End.Distance(Player.ServerPosition) <= 100)
                 {
