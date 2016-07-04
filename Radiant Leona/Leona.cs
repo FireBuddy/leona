@@ -128,7 +128,7 @@
                 if (args.End.Distance(Player.ServerPosition) <= 100)
                 {
                    Chat.Print("Receiving damage"+args.SData.Name);
-
+        
 
                  }
                 if (args.End.Distance(Player.ServerPosition) >= 100)
@@ -136,13 +136,13 @@
 
                     Chat.Print("Not Receiving damage" +args.SData.Name);
                     E.Cast(sender.ServerPosition);
-
+                    W.Cast(Player);
                 }                
                 if (args.Target != null)
                 {
                     Chat.Print("targetspell"+args.SData.Name);
                     E.Cast(sender.ServerPosition);
-
+                    W.Cast(Player);
 }
             } 
 }
