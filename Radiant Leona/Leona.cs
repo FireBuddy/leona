@@ -97,6 +97,7 @@
                 
                 {
                     E.Cast(sender.ServerPosition);
+                    W.Cast();
                 }
 
             } 
